@@ -6,6 +6,11 @@ import * as moment from "moment";
 
 export class RSSItem extends React.Component<IRSSItem, {}> {
 
+
+  private fixURI(uri: string){
+    return uri.replace(/&amp;/g, "&");
+  }
+
   // component to show RSS item
   public render(): React.ReactElement<IRSSItem> {
     return (
@@ -16,7 +21,7 @@ export class RSSItem extends React.Component<IRSSItem, {}> {
         
         <div className={styles.contentContainer}>
           <div className={styles.title}>
-            <a href={this.props.item.link} target="_blank">
+            <a href={this.fixURI(this.props.item.link)} target="_blank">
               <div title={this._stripHTML(this.props.item.title)} dangerouslySetInnerHTML={{ __html: this.props.item.title }}/>
             </a>
           </div>

@@ -87,7 +87,7 @@ export default class Rss extends React.Component<IRSSProps, IRSSPropsState> {
 
     let rssUrl: string = "";
     let rssArray: string[] = [];  // version 2: multiple RSS sources
-
+    
     if (this._rssUrl === "") {
       // no url, set error
       this.setState({ rssItemsLoaded: false, rssError: true, rssItems: [] });
@@ -107,7 +107,6 @@ export default class Rss extends React.Component<IRSSProps, IRSSPropsState> {
 
       // add the rss url from properties
       rssUrl = rssArray[0];
-
       // load the contents from the rss url
       try {
         fetch(rssUrl)
